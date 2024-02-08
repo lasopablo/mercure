@@ -1,0 +1,569 @@
+.
+├── CODE_OF_CONDUCT.md
+├── LICENSE
+├── README.md
+├── VERSION
+├── addons
+│   ├── orthanc
+│   │   ├── docker-compose.yml
+│   │   ├── nginx.conf
+│   │   └── orthanc.json
+│   └── vagrant
+│       ├── docker
+│       │   └── Vagrantfile
+│       ├── nomad
+│       │   └── Vagrantfile
+│       └── systemd
+│           └── Vagrantfile
+├── alembic
+│   ├── README
+│   ├── env.py
+│   ├── script.py.mako
+│   └── versions
+│       ├── 1c51b42f13d5_self_tests_2.py
+│       ├── 31a5db4f993e_subtasks.py
+│       ├── 57724e1ea282_init_revision.py
+│       ├── 6041e3878f32_self_tests.py
+│       ├── 9c38f4f15a29_processor_outputs.py
+│       ├── af102cd510bd_remove_task_fk.py
+│       ├── e90a5c7c6211_processor_logs.py
+│       └── ee4575e2cf40_tasks_tracking.py
+├── alembic.ini
+├── bin
+│   ├── ubuntu20.04
+│   │   └── getdcmtags
+│   └── ubuntu22.04
+│       └── getdcmtags
+├── bookkeeper.py
+├── bookkeeping
+│   ├── __init__.py
+│   ├── config.py
+│   ├── database.py
+│   ├── helper.py
+│   └── query.py
+├── build-docker.sh
+├── cleaner.py
+├── common
+│   ├── __init__.py
+│   ├── config.py
+│   ├── constants.py
+│   ├── event_types.py
+│   ├── generate_test_series.py
+│   ├── helper.py
+│   ├── log_helpers.py
+│   ├── monitor.py
+│   ├── notification.py
+│   ├── rule_evaluation.py
+│   ├── tagslist.py
+│   ├── types.py
+│   └── version.py
+├── configuration
+│   ├── default_bookkeeper.env
+│   ├── default_mercure.json
+│   ├── default_services.json
+│   └── default_webgui.env
+├── dispatch
+│   ├── __init__.py
+│   ├── process_dcmsend_result.py
+│   ├── retry.py
+│   ├── send.py
+│   ├── status.py
+│   └── target_types
+│       ├── __init__.py
+│       ├── base.py
+│       ├── builtin.py
+│       ├── dicomweb.py
+│       ├── folder.py
+│       ├── registry.py
+│       ├── s3.py
+│       └── xnat.py
+├── dispatcher.py
+├── docker
+│   ├── base
+│   │   └── Dockerfile
+│   ├── bookkeeper
+│   │   └── Dockerfile
+│   ├── cleaner
+│   │   └── Dockerfile
+│   ├── dispatcher
+│   │   └── Dockerfile
+│   ├── docker-compose.override.yml
+│   ├── docker-compose.yml
+│   ├── processor
+│   │   └── Dockerfile
+│   ├── receiver
+│   │   └── Dockerfile
+│   ├── router
+│   │   └── Dockerfile
+│   └── ui
+│       └── Dockerfile
+├── docs
+│   ├── Makefile
+│   ├── _static
+│   │   ├── custom.css
+│   │   └── favicon.ico
+│   ├── _templates
+│   │   ├── layout.html
+│   │   └── versions.html
+│   ├── advanced.rst
+│   ├── anonymizer.rst
+│   ├── bookkeeper.rst
+│   ├── cleaner.rst
+│   ├── code.rst
+│   ├── common.rst
+│   ├── conf.py
+│   ├── dashboards.rst
+│   ├── dashboards_dispatchexplorer.png
+│   ├── dashboards_graphite.png
+│   ├── dashboards_lastseriesreceived.png
+│   ├── dashboards_receivedseries.png
+│   ├── dashboards_seriesevents.png
+│   ├── dashboards_systemstatus.png
+│   ├── dcmannotate.rst
+│   ├── dispatch.rst
+│   ├── dispatcher.rst
+│   ├── environment.rst
+│   ├── faq.rst
+│   ├── header.jpg
+│   ├── index.rst
+│   ├── install.rst
+│   ├── intro.rst
+│   ├── mercure_logo_w.png
+│   ├── module_list.rst
+│   ├── modules.rst
+│   ├── monitoring.rst
+│   ├── process.rst
+│   ├── processor.rst
+│   ├── quickstart.rst
+│   ├── releases.rst
+│   ├── roadmap.rst
+│   ├── router.rst
+│   ├── routing.rst
+│   ├── scheme.png
+│   ├── support.rst
+│   ├── ui_log.png
+│   ├── ui_login.png
+│   ├── ui_modules.png
+│   ├── ui_modules_edit.png
+│   ├── ui_queue.png
+│   ├── ui_queue_processing.png
+│   ├── ui_rules.png
+│   ├── ui_rules_edit.png
+│   ├── ui_rules_edit_information.png
+│   ├── ui_rules_edit_notification.png
+│   ├── ui_rules_edit_processing.png
+│   ├── ui_rules_edit_routing.png
+│   ├── ui_rules_edit_trigger.png
+│   ├── ui_rules_test.png
+│   ├── ui_status.png
+│   ├── ui_status_control.png
+│   ├── ui_target_edit.png
+│   ├── ui_targets.png
+│   ├── ui_users.png
+│   ├── usage.rst
+│   ├── webgui.rst
+│   └── webinterface.rst
+├── getdcmtags
+│   ├── getdcmtags.pro
+│   ├── main.cpp
+│   └── tags_list.h
+├── install.sh
+├── installation
+│   ├── install-env.sh
+│   ├── mercure-sudoer
+│   ├── mercure_bookkeeper.service
+│   ├── mercure_cleaner.service
+│   ├── mercure_dispatcher.service
+│   ├── mercure_processor.service
+│   ├── mercure_receiver.service
+│   ├── mercure_router.service
+│   └── mercure_ui.service
+├── mercure.png
+├── mypy.ini
+├── nomad
+│   ├── client.hcl
+│   ├── dummy-processor
+│   │   ├── Dockerfile
+│   │   ├── Makefile
+│   │   └── docker-entrypoint.sh
+│   ├── mercure-processor-template.nomad
+│   ├── mercure-ui.nomad
+│   ├── mercure.nomad
+│   ├── monitor.sh
+│   ├── policies
+│   │   ├── anonymous-strict.policy.hcl
+│   │   └── anonymous.policy.hcl
+│   ├── processing
+│   │   ├── Dockerfile
+│   │   ├── Makefile
+│   │   └── docker-entrypoint.sh
+│   ├── rebuild.sh
+│   ├── server.conf
+│   ├── server.hcl
+│   └── sshd
+│       ├── Dockerfile
+│       ├── Makefile
+│       ├── docker-entrypoint.sh
+│       └── sshd_config
+├── process
+│   ├── __init__.py
+│   ├── process_series.py
+│   └── status.py
+├── processor.py
+├── push-docker.sh
+├── receiver.sh
+├── requirements.in
+├── requirements.txt
+├── router.py
+├── routing
+│   ├── __init__.py
+│   ├── common.py
+│   ├── generate_taskfile.py
+│   ├── route_series.py
+│   └── route_studies.py
+├── test.py
+├── tests
+│   ├── data
+│   │   └── test_config.json
+│   ├── dispatch
+│   │   ├── test_retry.py
+│   │   ├── test_send.py
+│   │   └── test_status.py
+│   ├── test_bookkeeper.py
+│   ├── test_cleaner.py
+│   ├── test_dispatcher.py
+│   ├── test_notifications.py
+│   ├── test_processor.py
+│   ├── test_pydantic.py
+│   ├── test_router.py
+│   ├── test_studies.py
+│   ├── test_webui.py
+│   └── testing_common.py
+├── tree.txt
+├── webgui.py
+└── webinterface
+    ├── __init__.py
+    ├── api.py
+    ├── common.py
+    ├── dashboards.py
+    ├── modules.py
+    ├── queue.py
+    ├── rules.py
+    ├── services.py
+    ├── statics
+    │   ├── DataTables
+    │   │   ├── Buttons-2.0.1
+    │   │   │   ├── css
+    │   │   │   │   ├── buttons.bootstrap.css
+    │   │   │   │   ├── buttons.bootstrap.min.css
+    │   │   │   │   ├── buttons.bootstrap4.css
+    │   │   │   │   ├── buttons.bootstrap4.min.css
+    │   │   │   │   ├── buttons.bootstrap5.css
+    │   │   │   │   ├── buttons.bootstrap5.min.css
+    │   │   │   │   ├── buttons.bulma.css
+    │   │   │   │   ├── buttons.bulma.min.css
+    │   │   │   │   ├── buttons.dataTables.css
+    │   │   │   │   ├── buttons.dataTables.min.css
+    │   │   │   │   ├── buttons.foundation.css
+    │   │   │   │   ├── buttons.foundation.min.css
+    │   │   │   │   ├── buttons.jqueryui.css
+    │   │   │   │   ├── buttons.jqueryui.min.css
+    │   │   │   │   ├── buttons.semanticui.css
+    │   │   │   │   ├── buttons.semanticui.min.css
+    │   │   │   │   ├── common.scss
+    │   │   │   │   └── mixins.scss
+    │   │   │   └── js
+    │   │   │       ├── buttons.bootstrap.js
+    │   │   │       ├── buttons.bootstrap.min.js
+    │   │   │       ├── buttons.bootstrap4.js
+    │   │   │       ├── buttons.bootstrap4.min.js
+    │   │   │       ├── buttons.bootstrap5.js
+    │   │   │       ├── buttons.bootstrap5.min.js
+    │   │   │       ├── buttons.bulma.js
+    │   │   │       ├── buttons.bulma.min.js
+    │   │   │       ├── buttons.colVis.js
+    │   │   │       ├── buttons.colVis.min.js
+    │   │   │       ├── buttons.dataTables.js
+    │   │   │       ├── buttons.dataTables.min.js
+    │   │   │       ├── buttons.foundation.js
+    │   │   │       ├── buttons.foundation.min.js
+    │   │   │       ├── buttons.html5.js
+    │   │   │       ├── buttons.html5.min.js
+    │   │   │       ├── buttons.jqueryui.js
+    │   │   │       ├── buttons.jqueryui.min.js
+    │   │   │       ├── buttons.print.js
+    │   │   │       ├── buttons.print.min.js
+    │   │   │       ├── buttons.semanticui.js
+    │   │   │       ├── buttons.semanticui.min.js
+    │   │   │       ├── dataTables.buttons.js
+    │   │   │       └── dataTables.buttons.min.js
+    │   │   ├── DataTables-1.11.3
+    │   │   │   ├── css
+    │   │   │   │   ├── dataTables.bootstrap.css
+    │   │   │   │   ├── dataTables.bootstrap.min.css
+    │   │   │   │   ├── dataTables.bootstrap4.css
+    │   │   │   │   ├── dataTables.bootstrap4.min.css
+    │   │   │   │   ├── dataTables.bootstrap5.css
+    │   │   │   │   ├── dataTables.bootstrap5.min.css
+    │   │   │   │   ├── dataTables.bulma.css
+    │   │   │   │   ├── dataTables.bulma.min.css
+    │   │   │   │   ├── dataTables.dataTables.css
+    │   │   │   │   ├── dataTables.dataTables.min.css
+    │   │   │   │   ├── dataTables.foundation.css
+    │   │   │   │   ├── dataTables.foundation.min.css
+    │   │   │   │   ├── dataTables.jqueryui.css
+    │   │   │   │   ├── dataTables.jqueryui.min.css
+    │   │   │   │   ├── dataTables.semanticui.css
+    │   │   │   │   ├── dataTables.semanticui.min.css
+    │   │   │   │   ├── jquery.dataTables.css
+    │   │   │   │   └── jquery.dataTables.min.css
+    │   │   │   ├── images
+    │   │   │   │   ├── sort_asc.png
+    │   │   │   │   ├── sort_asc_disabled.png
+    │   │   │   │   ├── sort_both.png
+    │   │   │   │   ├── sort_desc.png
+    │   │   │   │   └── sort_desc_disabled.png
+    │   │   │   └── js
+    │   │   │       ├── dataTables.bootstrap.js
+    │   │   │       ├── dataTables.bootstrap.min.js
+    │   │   │       ├── dataTables.bootstrap4.js
+    │   │   │       ├── dataTables.bootstrap4.min.js
+    │   │   │       ├── dataTables.bootstrap5.js
+    │   │   │       ├── dataTables.bootstrap5.min.js
+    │   │   │       ├── dataTables.bulma.js
+    │   │   │       ├── dataTables.bulma.min.js
+    │   │   │       ├── dataTables.dataTables.js
+    │   │   │       ├── dataTables.dataTables.min.js
+    │   │   │       ├── dataTables.foundation.js
+    │   │   │       ├── dataTables.foundation.min.js
+    │   │   │       ├── dataTables.jqueryui.js
+    │   │   │       ├── dataTables.jqueryui.min.js
+    │   │   │       ├── dataTables.semanticui.js
+    │   │   │       ├── dataTables.semanticui.min.js
+    │   │   │       ├── jquery.dataTables.js
+    │   │   │       └── jquery.dataTables.min.js
+    │   │   ├── FixedHeader-3.2.0
+    │   │   │   ├── css
+    │   │   │   │   ├── fixedHeader.bootstrap.css
+    │   │   │   │   ├── fixedHeader.bootstrap.min.css
+    │   │   │   │   ├── fixedHeader.bootstrap4.css
+    │   │   │   │   ├── fixedHeader.bootstrap4.min.css
+    │   │   │   │   ├── fixedHeader.bootstrap5.css
+    │   │   │   │   ├── fixedHeader.bootstrap5.min.css
+    │   │   │   │   ├── fixedHeader.bulma.css
+    │   │   │   │   ├── fixedHeader.bulma.min.css
+    │   │   │   │   ├── fixedHeader.dataTables.css
+    │   │   │   │   ├── fixedHeader.dataTables.min.css
+    │   │   │   │   ├── fixedHeader.foundation.css
+    │   │   │   │   ├── fixedHeader.foundation.min.css
+    │   │   │   │   ├── fixedHeader.jqueryui.css
+    │   │   │   │   ├── fixedHeader.jqueryui.min.css
+    │   │   │   │   ├── fixedHeader.semanticui.css
+    │   │   │   │   └── fixedHeader.semanticui.min.css
+    │   │   │   └── js
+    │   │   │       ├── dataTables.fixedHeader.js
+    │   │   │       ├── dataTables.fixedHeader.min.js
+    │   │   │       ├── fixedHeader.bootstrap.js
+    │   │   │       ├── fixedHeader.bootstrap.min.js
+    │   │   │       ├── fixedHeader.bootstrap4.js
+    │   │   │       ├── fixedHeader.bootstrap4.min.js
+    │   │   │       ├── fixedHeader.bootstrap5.js
+    │   │   │       ├── fixedHeader.bootstrap5.min.js
+    │   │   │       ├── fixedHeader.bulma.js
+    │   │   │       ├── fixedHeader.bulma.min.js
+    │   │   │       ├── fixedHeader.dataTables.js
+    │   │   │       ├── fixedHeader.dataTables.min.js
+    │   │   │       ├── fixedHeader.foundation.js
+    │   │   │       ├── fixedHeader.foundation.min.js
+    │   │   │       ├── fixedHeader.jqueryui.js
+    │   │   │       ├── fixedHeader.jqueryui.min.js
+    │   │   │       ├── fixedHeader.semanticui.js
+    │   │   │       └── fixedHeader.semanticui.min.js
+    │   │   ├── Scroller-2.0.5
+    │   │   │   ├── css
+    │   │   │   │   ├── scroller.bootstrap.css
+    │   │   │   │   ├── scroller.bootstrap.min.css
+    │   │   │   │   ├── scroller.bootstrap4.css
+    │   │   │   │   ├── scroller.bootstrap4.min.css
+    │   │   │   │   ├── scroller.bootstrap5.css
+    │   │   │   │   ├── scroller.bootstrap5.min.css
+    │   │   │   │   ├── scroller.bulma.css
+    │   │   │   │   ├── scroller.bulma.min.css
+    │   │   │   │   ├── scroller.dataTables.css
+    │   │   │   │   ├── scroller.dataTables.min.css
+    │   │   │   │   ├── scroller.foundation.css
+    │   │   │   │   ├── scroller.foundation.min.css
+    │   │   │   │   ├── scroller.jqueryui.css
+    │   │   │   │   ├── scroller.jqueryui.min.css
+    │   │   │   │   ├── scroller.semanticui.css
+    │   │   │   │   └── scroller.semanticui.min.css
+    │   │   │   └── js
+    │   │   │       ├── dataTables.scroller.js
+    │   │   │       ├── dataTables.scroller.min.js
+    │   │   │       ├── scroller.bootstrap.js
+    │   │   │       ├── scroller.bootstrap.min.js
+    │   │   │       ├── scroller.bootstrap4.js
+    │   │   │       ├── scroller.bootstrap4.min.js
+    │   │   │       ├── scroller.bootstrap5.js
+    │   │   │       ├── scroller.bootstrap5.min.js
+    │   │   │       ├── scroller.bulma.js
+    │   │   │       ├── scroller.bulma.min.js
+    │   │   │       ├── scroller.dataTables.js
+    │   │   │       ├── scroller.dataTables.min.js
+    │   │   │       ├── scroller.foundation.js
+    │   │   │       ├── scroller.foundation.min.js
+    │   │   │       ├── scroller.jqueryui.js
+    │   │   │       ├── scroller.jqueryui.min.js
+    │   │   │       ├── scroller.semanticui.js
+    │   │   │       └── scroller.semanticui.min.js
+    │   │   ├── SearchPanes-1.4.0
+    │   │   │   ├── css
+    │   │   │   │   ├── searchPanes.bootstrap.css
+    │   │   │   │   ├── searchPanes.bootstrap.min.css
+    │   │   │   │   ├── searchPanes.bootstrap4.css
+    │   │   │   │   ├── searchPanes.bootstrap4.min.css
+    │   │   │   │   ├── searchPanes.bootstrap5.css
+    │   │   │   │   ├── searchPanes.bootstrap5.min.css
+    │   │   │   │   ├── searchPanes.bulma.css
+    │   │   │   │   ├── searchPanes.bulma.min.css
+    │   │   │   │   ├── searchPanes.dataTables.css
+    │   │   │   │   ├── searchPanes.dataTables.min.css
+    │   │   │   │   ├── searchPanes.foundation.css
+    │   │   │   │   ├── searchPanes.foundation.min.css
+    │   │   │   │   ├── searchPanes.jqueryui.css
+    │   │   │   │   ├── searchPanes.jqueryui.min.css
+    │   │   │   │   ├── searchPanes.semanticui.css
+    │   │   │   │   └── searchPanes.semanticui.min.css
+    │   │   │   └── js
+    │   │   │       ├── dataTables.searchPanes.js
+    │   │   │       ├── dataTables.searchPanes.min.js
+    │   │   │       ├── searchPanes.bootstrap.js
+    │   │   │       ├── searchPanes.bootstrap.min.js
+    │   │   │       ├── searchPanes.bootstrap4.js
+    │   │   │       ├── searchPanes.bootstrap4.min.js
+    │   │   │       ├── searchPanes.bootstrap5.js
+    │   │   │       ├── searchPanes.bootstrap5.min.js
+    │   │   │       ├── searchPanes.bulma.js
+    │   │   │       ├── searchPanes.bulma.min.js
+    │   │   │       ├── searchPanes.dataTables.js
+    │   │   │       ├── searchPanes.dataTables.min.js
+    │   │   │       ├── searchPanes.foundation.js
+    │   │   │       ├── searchPanes.foundation.min.js
+    │   │   │       ├── searchPanes.jqueryui.js
+    │   │   │       ├── searchPanes.jqueryui.min.js
+    │   │   │       ├── searchPanes.semanticui.js
+    │   │   │       └── searchPanes.semanticui.min.js
+    │   │   ├── Select-1.3.3
+    │   │   │   ├── css
+    │   │   │   │   ├── select.bootstrap.css
+    │   │   │   │   ├── select.bootstrap.min.css
+    │   │   │   │   ├── select.bootstrap4.css
+    │   │   │   │   ├── select.bootstrap4.min.css
+    │   │   │   │   ├── select.bootstrap5.css
+    │   │   │   │   ├── select.bootstrap5.min.css
+    │   │   │   │   ├── select.bulma.css
+    │   │   │   │   ├── select.bulma.min.css
+    │   │   │   │   ├── select.dataTables.css
+    │   │   │   │   ├── select.dataTables.min.css
+    │   │   │   │   ├── select.foundation.css
+    │   │   │   │   ├── select.foundation.min.css
+    │   │   │   │   ├── select.jqueryui.css
+    │   │   │   │   ├── select.jqueryui.min.css
+    │   │   │   │   ├── select.semanticui.css
+    │   │   │   │   └── select.semanticui.min.css
+    │   │   │   └── js
+    │   │   │       ├── dataTables.select.js
+    │   │   │       ├── dataTables.select.min.js
+    │   │   │       ├── select.bootstrap.js
+    │   │   │       ├── select.bootstrap.min.js
+    │   │   │       ├── select.bootstrap4.js
+    │   │   │       ├── select.bootstrap4.min.js
+    │   │   │       ├── select.bootstrap5.js
+    │   │   │       ├── select.bootstrap5.min.js
+    │   │   │       ├── select.bulma.js
+    │   │   │       ├── select.bulma.min.js
+    │   │   │       ├── select.dataTables.js
+    │   │   │       ├── select.dataTables.min.js
+    │   │   │       ├── select.foundation.js
+    │   │   │       ├── select.foundation.min.js
+    │   │   │       ├── select.jqueryui.js
+    │   │   │       ├── select.jqueryui.min.js
+    │   │   │       ├── select.semanticui.js
+    │   │   │       └── select.semanticui.min.js
+    │   │   ├── datatables.css
+    │   │   ├── datatables.js
+    │   │   ├── datatables.min.css
+    │   │   └── datatables.min.js
+    │   ├── css
+    │   │   ├── bulma-extensions.min.css
+    │   │   ├── bulma.min.css
+    │   │   ├── custom.css
+    │   │   ├── jquery.json-viewer.css
+    │   │   ├── slimselect.css
+    │   │   └── tooltip.css
+    │   ├── favicon-16x16.png
+    │   ├── favicon-32x32.png
+    │   ├── favicon.ico
+    │   ├── header_logo.png
+    │   ├── header_logo_old.png
+    │   └── js
+    │       ├── bulma-extensions.min.js
+    │       ├── bulma-quickview.min.js
+    │       ├── bulma-tagsinput.min.js
+    │       ├── dataDictionary.js
+    │       ├── dicomParser.min.js
+    │       ├── fontawesome-5.9.js
+    │       ├── htmx.min.js
+    │       ├── jquery-3.5.1.min.js
+    │       ├── jquery.json-viewer.js
+    │       ├── sidecar.v1.js
+    │       └── slimselect.js
+    ├── targets.py
+    ├── templates
+    │   ├── 404.html
+    │   ├── 500.html
+    │   ├── base.html
+    │   ├── configuration.html
+    │   ├── configuration_edit.html
+    │   ├── dashboards
+    │   │   ├── dashboards.html
+    │   │   ├── tasks.html
+    │   │   └── tests.html
+    │   ├── generic.html
+    │   ├── index.html
+    │   ├── login.html
+    │   ├── logs.html
+    │   ├── modules.html
+    │   ├── modules_edit.html
+    │   ├── queue.html
+    │   ├── rules.html
+    │   ├── rules_edit.html
+    │   ├── targets
+    │   │   ├── base-test.html
+    │   │   ├── dicom-edit.html
+    │   │   ├── dicom-test.html
+    │   │   ├── dicom-tls-edit.html
+    │   │   ├── dicom-tls.html
+    │   │   ├── dicom.html
+    │   │   ├── dicomweb-edit.html
+    │   │   ├── dicomweb-test.html
+    │   │   ├── dicomweb.html
+    │   │   ├── dummy-edit.html
+    │   │   ├── dummy.html
+    │   │   ├── folder-edit.html
+    │   │   ├── folder.html
+    │   │   ├── s3-edit.html
+    │   │   ├── s3.html
+    │   │   ├── sftp-edit.html
+    │   │   ├── sftp-test.html
+    │   │   ├── sftp.html
+    │   │   ├── xnat-edit.html
+    │   │   ├── xnat-test.html
+    │   │   └── xnat.html
+    │   ├── targets.html
+    │   ├── targets_edit.html
+    │   ├── users.html
+    │   └── users_edit.html
+    └── users.py
+
+68 directories, 499 files
